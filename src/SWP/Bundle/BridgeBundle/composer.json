@@ -28,7 +28,7 @@
         "swp/bridge": "^2.0",
         "symfony/monolog-bundle": "^3.3",
         "symfony/monolog-bridge": "^4.2",
-        "symfony/translation": "^4.2",
+        "symfony/translation": "^5.0",
         "symfony/framework-bundle": "^4.2",
         "symfony/validator": "^4.2"
     },

@@ -41,7 +41,7 @@ final class OrganizationThemesProviderPass extends AbstractOverridePass
             new Definition(JsonFileConfigurationLoader::class, [
                 new Reference('sylius.theme.filesystem'),
             ]),
-            new Reference('sylius.theme.configuration.processor'),
+//            new Reference('sylius.theme.configuration.processor'),
         ]);
 
         $configurationProvider = new Definition(FilesystemConfigurationProvider::class, [

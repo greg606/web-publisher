@@ -33,4 +33,9 @@ final class RedirectRouteTypeExtension extends AbstractTypeExtension
     {
         return RedirectRouteType::class;
     }
+
+    public static function getExtendedTypes(): iterable
+    {
+        return [];
+    }
 }

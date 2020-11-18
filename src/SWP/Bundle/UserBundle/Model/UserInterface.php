@@ -16,11 +16,11 @@ declare(strict_types=1);
 
 namespace SWP\Bundle\UserBundle\Model;
 
-use FOS\UserBundle\Model\UserInterface as BaseUserInterface;
+//use FOS\UserBundle\Model\UserInterface as BaseUserInterface;
 use SWP\Component\Common\Model\TimestampableInterface;
 use SWP\Component\Storage\Model\PersistableInterface;
 
-interface UserInterface extends BaseUserInterface, PersistableInterface, TimestampableInterface
+interface UserInterface extends /*BaseUserInterface,*/ PersistableInterface, TimestampableInterface
 {
     /**
      * @return string

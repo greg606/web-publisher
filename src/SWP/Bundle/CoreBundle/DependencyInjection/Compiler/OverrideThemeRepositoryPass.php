@@ -29,6 +29,6 @@ final class OverrideThemeRepositoryPass extends AbstractOverridePass
             'sylius.repository.theme',
             ReloadableInMemoryRepository::class
         );
-        $definition->setPublic(true);
+        //$definition->setPublic(true);
     }
 }

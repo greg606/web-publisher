@@ -54,15 +54,15 @@ final class PackageTopic extends AbstractSecuredTopic implements TopicInterface,
     /**
      * {@inheritdoc}
      */
-    public function onPush(Topic $topic, WampRequest $request, $data, $provider)
+    public function onPush(Topic $topic, WampRequest $request, $data, $provider): void
     {
         $topic->broadcast($data);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritdoc}`
      */
-    public function registerPeriodicTimer(Topic $topic)
+    public function registerPeriodicTimer(Topic $topic): void
     {
         $n = 1;
         $this->periodicTimer->addPeriodicTimer($this, 'ping', 5, function () use ($topic, &$n) {
@@ -75,7 +75,7 @@ final class PackageTopic extends AbstractSecuredTopic implements TopicInterface,
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'swp.package';
     }

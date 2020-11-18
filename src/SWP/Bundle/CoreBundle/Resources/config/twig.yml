@@ -2,11 +2,11 @@ services:
     _defaults:
         public: true
 
-    swp_core.decorating_routing.twig_extension:
-        class: SWP\Bundle\CoreBundle\Twig\RoutingExtension
-        decorates: twig.extension.routing
-        public: false
-        parent: twig.extension.routing
+#    swp_core.decorating_routing.twig_extension:
+#        class: SWP\Bundle\CoreBundle\Twig\RoutingExtension
+#        decorates: twig.extension.routing
+#        public: false
+#        parent: twig.extension.routing
 
     swp_core.decorating_menu.twig_extension:
         class: SWP\Bundle\CoreBundle\Twig\MenuExtension

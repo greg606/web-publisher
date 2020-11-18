@@ -53,7 +53,7 @@
     "burgov/key-value-form-bundle": "@stable",
     "litipk/flysystem-fallback-adapter": "dev-master",
     "zendframework/zend-stdlib": "^3.2@dev",
-    "symfony/translation": "^4.3",
+    "symfony/translation": "^5.0",
     "swp/seo-bundle": "^2.1",
     "swp/redirect-route-bundle": "^2.0",
     "symfony/templating": "^4.3",

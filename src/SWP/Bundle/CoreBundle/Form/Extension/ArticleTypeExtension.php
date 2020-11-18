@@ -32,4 +32,9 @@ final class ArticleTypeExtension extends AbstractTypeExtension
     {
         return ArticleType::class;
     }
+
+    public static function getExtendedTypes(): iterable
+    {
+        return [ArticleType::class];
+    }
 }
