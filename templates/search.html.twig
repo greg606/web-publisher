@@ -4,45 +4,41 @@
     </head>
     <body>
 
-    <form name="filter" method="get">
-        <input type="search" id="filter_search" name="q">
-    </form>
+{#    <form name="filter" method="get">#}
+{#        <input type="search" id="filter_search" name="q">#}
+{#    </form>#}
 
-    <div style="width: 800px">
+{#    <div style="width: 800px">#}
 
-    {% set itemsPerPage, currentPage = 8, app.request.get('page', 1) %}
-    {% set start = ((currentPage - 1) * itemsPerPage) %}
+{#    {% set itemsPerPage, currentPage = 8, app.request.get('page', 1) %}#}
+{#    {% set start = ((currentPage - 1) * itemsPerPage) %}#}
 
-
-
-
-
-    {% gimmelist article from searchResults|limit(app.request.get('limit', 100))|order(app.request.get('field', 'publishedAt'), app.request.get('direction', 'desc')) with {
-        term: app.request.get('q', ''),
-        page: app.request.get('page', 1),
-        routes: app.request.get('route', []),
-        term: app.request.get('q', ''),
-        publishedBefore: app.request.get('publishedBefore'),
-        publishedAfter: app.request.get('publishedAfter'),
-        publishedAt: app.request.get('publishedAt'),
-        sources: app.request.get('source', []),
-        authors: app.request.get('author', []),
-        statuses: app.request.get('status', []),
-        metadata: app.request.get('metadata', []),
-        keywords: app.request.get('keywords', []),
-        } %}
+{#    {% gimmelist article from searchResults|limit(app.request.get('limit', 100))|order(app.request.get('field', 'publishedAt'), app.request.get('direction', 'desc')) with {#}
+{#        term: app.request.get('q', ''),#}
+{#        page: app.request.get('page', 1),#}
+{#        routes: app.request.get('route', []),#}
+{#        term: app.request.get('q', ''),#}
+{#        publishedBefore: app.request.get('publishedBefore'),#}
+{#        publishedAfter: app.request.get('publishedAfter'),#}
+{#        publishedAt: app.request.get('publishedAt'),#}
+{#        sources: app.request.get('source', []),#}
+{#        authors: app.request.get('author', []),#}
+{#        statuses: app.request.get('status', []),#}
+{#        metadata: app.request.get('metadata', []),#}
+{#        keywords: app.request.get('keywords', []),#}
+{#        } %}#}
 
 
-        {% if : searchResults.suggestedTerm %}
-        Did you mean <a href="{{ path(app.request.attributes.get('_route'),
-        app.request.query.all|merge({'q': searchResults.suggestedTerm}))|replace({'%20': '+'})  }}">{{ searchResults.suggestedTerm }}</a> ?
-        {% endif %}
+        {% gimmelist article from articles|limit(10) with { metadata: {urgency: 1}} %}
 
-        {% else  %}
-            {% if searchResults.suggestedTerm %}
-            Did you mean <a href="{{ path(app.request.attributes.get('_route'),
-            app.request.query.all|merge({'q': searchResults.suggestedTerm}))|replace({'%20': '+'})  }}">{{ searchResults.suggestedTerm }}</a> ?
-            {% endif %}
+            <li>
+                {{ article.title }}
+                {{ article.title }}
+               <h2> {{ article.id }}</h2>
+               <h2> {{ article.metadata.urgency }}</h2>
+            </li>
+{#            {{ dump(article) }}#}
+
     {% endgimmelist %}
 
 
