@@ -168,8 +168,8 @@ services:
         arguments:
             - '@event_dispatcher'
 
-    swp.publish_workflow.checker:
-        alias: cmf_core.publish_workflow.checker
+#    swp.publish_workflow.checker:
+#        alias: cmf_core.publish_workflow.checker
 
     SWP\Bundle\ContentBundle\File\FileDownloader:
         arguments:

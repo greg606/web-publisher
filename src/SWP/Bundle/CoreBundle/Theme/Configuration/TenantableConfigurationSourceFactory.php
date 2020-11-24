@@ -50,19 +50,19 @@ final class TenantableConfigurationSourceFactory implements ConfigurationSourceF
     public function initializeSource(ContainerBuilder $container, array $config)
     {
         $recursiveFileLocator = new Definition(TenantThemesConfigurationFileLocator::class, [
-            new Reference('sylius.theme.finder_factory'),
+            new Reference('Sylius\Bundle\ThemeBundle\Factory\FinderFactoryInterface'),
             $config['directories'],
             new Reference(TenantThemesPathsProviderInterface::class),
         ]);
 
-//        $themeConfigurationProcessor = $container->getDefinition('sylius.theme.configuration.processor');
-//        $themeConfigurationProcessor->replaceArgument(0, new Definition(ThemeConfiguration::class));
+        $themeConfigurationProcessor = $container->getDefinition('Sylius\Bundle\ThemeBundle\Configuration\ConfigurationProcessorInterface');
+        $themeConfigurationProcessor->replaceArgument(0, new Definition(ThemeConfiguration::class));
 
         $configurationLoader = new Definition(ProcessingConfigurationLoader::class, [
             new Definition(JsonFileConfigurationLoader::class, [
-                new Reference('sylius.theme.filesystem'),
+                new Reference('Sylius\Bundle\ThemeBundle\Filesystem\FilesystemInterface'),
             ]),
-//            $themeConfigurationProcessor,
+            $themeConfigurationProcessor,
         ]);
 
         $configurationProvider = new Definition(TenantableConfigurationProvider::class, [

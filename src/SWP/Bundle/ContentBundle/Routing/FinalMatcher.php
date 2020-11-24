@@ -14,15 +14,17 @@
 
 namespace SWP\Bundle\ContentBundle\Routing;
 
-use Symfony\Bundle\FrameworkBundle\Routing\RedirectableUrlMatcher;
+use Symfony\Bundle\FrameworkBundle\Routing\RedirectableCompiledUrlMatcher;
 use Symfony\Cmf\Component\Routing\NestedMatcher\FinalMatcherInterface;
 use Symfony\Cmf\Component\Routing\RouteObjectInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Matcher\CompiledUrlMatcher;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
-class FinalMatcher extends RedirectableUrlMatcher implements FinalMatcherInterface
+class FinalMatcher extends UrlMatcher implements FinalMatcherInterface
 {
     /**
      * {@inheritdoc}

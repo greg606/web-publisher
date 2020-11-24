@@ -87,7 +87,7 @@ services:
             - '@swp_core.loader.organization.theme'
             - '@twig'
             - '%swp.theme.configuration.default_directory%'
-            - '@sylius.theme.asset.assets_installer'
+            - 'Sylius\Bundle\ThemeBundle\Asset\Installer\AssetsInstaller'
             - '%sylius_core.public_dir%'
 
     swp_core.generator.theme.fake_article:
@@ -155,7 +155,6 @@ services:
             - '@sylius.factory.theme'
             - '@sylius.factory.theme_author'
             - '@sylius.factory.theme_screenshot'
-            - '@sylius.theme.hydrator'
             - '@sylius.theme.circular_dependency_checker'
 
     swp_core.security.session.domain_dynamic_storage:
@@ -255,7 +254,8 @@ services:
         arguments:
             - "@twig.loader.filesystem"
             - "@swp_core.theme.context.tenant_aware"
-            - "@sylius.theme.hierarchy_provider"
+#            - "@sylius.theme.hierarchy_provider"
+            - 'Sylius\Bundle\ThemeBundle\HierarchyProvider\ThemeHierarchyProviderInterface'
             - "%takeit_amp_html.configuration.theme.theme_path%"
 
     swp.twig.cache.tenant_aware:
@@ -519,18 +519,18 @@ services:
               arguments:
                   - '%fragment.path%'
 
-    swp_core.param_converter.article_preview.resolve_entity_converter:
-        class: SWP\Bundle\CoreBundle\Request\ParamConverter\ResolveEntityParamConverter
-        public: false
-        tags:
-            - { name: request.param_converter, priority: 11, converter: doctrine.orm }
-        arguments:
-            - {'Takeit\Bundle\AmpHtmlBundle\Model\AmpInterface': "%takeit_amp_html.configuration.model.class%"}
-            - '@swp_template_engine_context'
-            - '@SWP\Bundle\CoreBundle\Processor\ArticleMediaProcessor'
-            - '@swp.repository.package'
-            - '@swp.factory.article'
-            - '@?doctrine'
+#    swp_core.param_converter.article_preview.resolve_entity_converter:
+#        class: SWP\Bundle\CoreBundle\Request\ParamConverter\ResolveEntityParamConverter
+#        public: false
+#        tags:
+#            - { name: request.param_converter, priority: 11, converter: doctrine.orm }
+#        arguments:
+#            - {'Takeit\Bundle\AmpHtmlBundle\Model\AmpInterface': "%takeit_amp_html.configuration.model.class%"}
+#            - '@swp_template_engine_context'
+#            - '@SWP\Bundle\CoreBundle\Processor\ArticleMediaProcessor'
+#            - '@swp.repository.package'
+#            - '@swp.factory.article'
+#            - '@?doctrine'
 
     swp.adder.tenant_aware_article_source:
         class: SWP\Bundle\CoreBundle\Service\TenantAwareArticleSourcesAdder
@@ -636,7 +636,7 @@ services:
 
     SWP\Bundle\CoreBundle\EventListener\PushNotificationOnPackageListener:
         arguments:
-            - '@gos_web_socket.amqp.pusher'
+            - '@gos_web_socket.pusher.amqp'
             - '@swp.serializer'
         tags:
             - { name: kernel.event_listener, event: swp.bridge.package_post_update, method: onPostUpdate, priority: -10 }
@@ -760,7 +760,7 @@ services:
             - '@swp.factory.article_statistics'
             - '@swp.object_manager.article'
 
-    Sylius\Bundle\ThemeBundle\HierarchyProvider\ThemeHierarchyProviderInterface: '@sylius.theme.hierarchy_provider'
+#    Sylius\Bundle\ThemeBundle\HierarchyProvider\ThemeHierarchyProviderInterface: '@sylius.theme.hierarchy_provider'
 
     SWP\Bundle\CoreBundle\Service\SeoImageUploader:
         arguments:

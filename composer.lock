@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97a45233b753746a2c3af5b5e1cb22a5",
+    "content-hash": "8b47056d91d7764de32410cf7f24d44c",
     "packages": [
         {
             "name": "apache/log4php",
@@ -49,16 +49,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.162.0",
+            "version": "3.163.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "64b0468417c4a84ff5cc51a69cf2ff9d899c2e8e"
+                "reference": "7b6948915654f0f94847ccaf51172fa1a7f1cc59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/64b0468417c4a84ff5cc51a69cf2ff9d899c2e8e",
-                "reference": "64b0468417c4a84ff5cc51a69cf2ff9d899c2e8e",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7b6948915654f0f94847ccaf51172fa1a7f1cc59",
+                "reference": "7b6948915654f0f94847ccaf51172fa1a7f1cc59",
                 "shasum": ""
             },
             "require": {
@@ -133,9 +133,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.162.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.163.1"
             },
-            "time": "2020-11-17T19:12:26+00:00"
+            "time": "2020-11-19T19:26:10+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -15275,6 +15275,69 @@
             "time": "2020-05-04T11:53:13+00:00"
         },
         {
+            "name": "takeit/amp-html-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greg606/AmpHtmlBundle.git",
+                "reference": "8f6dd6b99ca208596a125827de6c86dec5d64ae9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greg606/AmpHtmlBundle/zipball/8f6dd6b99ca208596a125827de6c86dec5d64ae9",
+                "reference": "8f6dd6b99ca208596a125827de6c86dec5d64ae9",
+                "shasum": ""
+            },
+            "require": {
+                "lullabot/amp": "1.1.*",
+                "php": "^7.4",
+                "symfony/framework-bundle": "^5.0",
+                "symfony/twig-bundle": "^5.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^7.0.0",
+                "sebastian/comparator": "^3.0"
+            },
+            "default-branch": true,
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3-dev"
+                }
+            },
+            "autoload": {
+                "exclude-from-classmap": [
+                    "spec/"
+                ],
+                "psr-4": {
+                    "Takeit\\Bundle\\AmpHtmlBundle\\": ""
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Takeit\\Bundle\\AmpHtmlBundle\\spec\\": "spec/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rafał Muszyński",
+                    "email": "rmuszynski1@gmail.com"
+                }
+            ],
+            "description": "Provide AMP HTML conversion to your Symfony2/Symfony3 projects.",
+            "keywords": [
+                "amp",
+                "amp-html",
+                "amphtml",
+                "google",
+                "html"
+            ],
+            "time": "2020-11-20T11:08:50+00:00"
+        },
+        {
             "name": "takeit/stringy",
             "version": "dev-fix",
             "source": {
@@ -19146,7 +19209,8 @@
         "emanueleminotto/twig-cache-bundle": 20,
         "gedmo/doctrine-extensions": 20,
         "takeit/amp": 20,
-        "takeit/stringy": 20
+        "takeit/stringy": 20,
+        "takeit/amp-html-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

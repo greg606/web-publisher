@@ -6,3 +6,5 @@ services:
         tags:
             - { name: form.type }
 
+    fos_user.user_manager:
+        class: SWP\Bundle\UserBundle\Model\UserManager

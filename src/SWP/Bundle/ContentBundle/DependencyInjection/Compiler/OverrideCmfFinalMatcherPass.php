@@ -19,6 +19,7 @@ namespace SWP\Bundle\ContentBundle\DependencyInjection\Compiler;
 use SWP\Bundle\ContentBundle\Routing\FinalMatcher;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Routing\RouteCollection;
 
 final class OverrideCmfFinalMatcherPass implements CompilerPassInterface
 {
@@ -30,5 +31,11 @@ final class OverrideCmfFinalMatcherPass implements CompilerPassInterface
 
         $definition = $container->getDefinition('cmf_routing.final_matcher');
         $definition->setClass(FinalMatcher::class);
+
+        /** @var RouteCollection $routeCollection */
+//        $routeCollection = $definition->getArgument(0);
+//        dump()
+//        $definition->replaceArgument(0, $routeCollection->getIterator());
+//        dump($routeCollection); die();
     }
 }

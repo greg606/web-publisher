@@ -17,7 +17,7 @@ namespace SWP\Bundle\MultiTenancyBundle\EventListener;
 use Doctrine\ORM\EntityManagerInterface;
 use SWP\Bundle\MultiTenancyBundle\MultiTenancyEvents;
 use SWP\Component\MultiTenancy\Context\TenantContextInterface;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -39,14 +39,14 @@ class TenantableListener implements EventSubscriberInterface
     protected $entityManager;
 
     /**
-     * @var RegistryInterface
+     * @var ManagerRegistry
      */
     protected $doctrine;
 
     /**
      * Construct.
      */
-    public function __construct(RegistryInterface $doctrine, TenantContextInterface $tenantContext)
+    public function __construct(ManagerRegistry $doctrine, TenantContextInterface $tenantContext)
     {
         $this->doctrine = $doctrine;
         $this->tenantContext = $tenantContext;
